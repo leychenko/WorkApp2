@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230916120412">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<header data-lp class="header">
+			<div class="header__container">
+				<a href="" class="header__logo"><picture><source srcset="img/logo/logo.webp" type="image/webp"><img src="img/logo/logo.png" alt="logo"></picture></a>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<div class="menu__list">
+							<a href="" data-popup="#setData" class="menu__link  _icon-check"><span>Додати инфо</span></a>
+							<a href="" data-popup="#search" class="menu__link   _icon-search"><span>Пошук</span></a>
+							<a href="" data-popup="#clearData" class="menu__link  _icon-delete"><span>Очистити історію</span></a>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<section class="page__weather weather-section">
+
+					<div id="weather" class="weather">
+					</div>
+				</section>
+
+
+
+				<section class="page__menu menu-page">
+					<div class="menu-page__block block">
+						<form class="menu-page__form form">
+							<h2 class="form__title title">Данні декларації</h2>
+							<div class="form__line">
+								<label for="prod" class="form__label">
+									Назва товара:
+
+								</label>
+								<input autocomplete="off" type="text" id="prod" class="form__input input" />
+							</div>
+							<div class="form__line">
+								<label for="number" class="form__label">
+									Номер декларації:
+
+								</label>
+								<input autocomplete="off" type="text" id="number" class="form__input input" />
+							</div>
+							<div class="form__line">
+								<label for="zdp" class="form__label">
+									Номер ЗДП:
+
+								</label>
+								<input autocomplete="off" type="text" id="zdp" class="form__input input">
+							</div>
+							<div class="form__line">
+								<label for="date" class="form__label">
+									Дата:
+
+								</label>
+								<input autocomplete="off" type="text" id="date" class="form__input input">
+							</div>
+							<button type="button" id="addDeclaration" class="form__button button">Додати декларацію</button>
+						</form>
+					</div>
+				</section>
+
+
+				<section class="page__results results">
+					<div class="results__slider swiper">
+
+						<div class="results__wrapper swiper-wrapper">
+							<div class="results__slide swiper-slide">
+								<h4 class="results__slide-title">Bonus :</h4>
+								<p>Бонусів за <span id="bonus" class="span-info"></span></p>
+							</div>
+							<div class="results__slide swiper-slide">
+								<h4 class="results__slide-title">Salary :</h4>
+								<p>Зарплати за <span id="salary" class="span-info"></span></p>
+							</div>
+							<div class="results__slide swiper-slide">
+								<h4 class="results__slide-title">Tax :</h4>
+								<p>Податок за <span id="tax" class="span-info"></span></p>
+								<p>Податок за квартал : <span id="allTax" class="span-info"></span></p>
+							</div>
+							<div class="results__slide swiper-slide">
+								<h4 class="results__slide-title">Count :</h4>
+
+								<p>Кількість декларацій :<span id="countTotal" class="span-info"> </span></p>
+							</div>
+							<div class="results__slide swiper-slide">
+								<h4 class="results__slide-title">Some info card :</h4>
+								<p>Залишити на картці: <span id="someInfo" class="span-info"></span></p>
+							</div>
+						</div>
+
+						<div class="slider-action">
+							<button type="button" class="swiper-button-prev swiper-button _icon-right"></button>
+							<button type="button" class="swiper-button-next swiper-button _icon-right"></button>
+						</div>
+
+					</div>
+				</section>
+
+
+
+			</div>
+		</main>
+		<div id="search" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close _icon-close"></button>
+					<div class="popup__text">
+						<form class="popup__form form">
+							<h2 class="popup__title title ">Пошук декларацій</h2>
+							<div class="popup__line form__line">
+								<label for="search-input" class="popup__label form__label">Назва продукту :</label>
+								<input autocomplete="off" type="text" id="search-input" class="popup__input form__input input">
+							</div>
+							<button type="button" id="search-button" class="popup__button form__button button">Пошук</button>
+						</form>
+					</div>
+					<div class="popup__result"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="setData" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close _icon-close"></button>
+					<div class="popup__text">
+						<form class="popup__form form">
+							<h2 class="popup__title title ">Додати інформацію</h2>
+							<div class="popup__line form__line">
+								<label for="setData-input" class="popup__label form__label">Введіть суму :</label>
+								<input autocomplete="off" type="text" id="setData-input" class="popup__input form__input input">
+							</div>
+							<button type="button" id="setData-button" class="popup__button form__button button">Додати</button>
+							<div class="popup__line form__line">
+								<label for="setCountDecl-input" class="popup__label form__label">Введіть ном.декл:</label>
+								<input autocomplete="off" type="text" id="setCountDecl-input" class="popup__input form__input input">
+							</div>
+							<button type="button" id="setCountDecl-button" class="popup__button form__button button">Додати</button>
+						</form>
+					</div>
+					<div class="popup__result"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="clearData" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content clear-popup">
+					<button data-close type="button" class="popup__close _icon-close"></button>
+					<div class="clear-popup__action">
+						<button type="button" id="clearAllTAx" class="clear-popup__button button"><span>Очистити податки</span></button>
+						<button type="button" id="allDataHistory" class="clear-popup__button button"><span>Очистити данні</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<footer class="footer">
+			<div class="footer__container">
+
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230916120412"></script>
+
+</body>
+
+</html>
